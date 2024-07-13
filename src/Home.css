@@ -1,51 +1,76 @@
 .home-container {
-    background-size: cover;
-    background-position: center;
-    width: 240%;
-    height: 100vh;
-    color: white;
-    text-align: center;
+    min-height: 100vh;
+    min-width: 190vh;
+     /* Minimum full viewport height */
+    background-size: cover; /* Cover entire container with background image */
+    background-position: center; /* Center the background image */
+    background-repeat: no-repeat; /* Prevent background image from repeating */
+
+    /* Optional: Add overlay to background image */
+    background-color: rgba(0, 0, 0, 0.5); /* Uncomment and adjust opacity if desired */
+    /* background-blend-mode: overlay; Uncomment to blend with background */
+
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
-    padding-top: 20px;
-    /* Add some padding at the top */
+    text-align: center;
+    color: white; /* Text color */
 }
 
 .home-container h1 {
-    margin: 0;
-    padding: 10px;
-    background-color: rgba(0, 0, 0, 0.429);
-    /* Add a semi-transparent background for better readability */
-    width: 100%;
-    text-align: center;
+    font-size: 3.5rem;
+    margin-bottom: 0.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8); /* Optional: Text shadow for better readability */
 }
 
 .features-box {
-    background-color: rgba(255, 255, 255, 0.8);
-    /* Add a semi-transparent white background */
-    color: black;
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background for features box */
+    padding: 1.5rem;
     border-radius: 10px;
-    padding: 20px;
-    margin-top: 20px;
-    width: 80%;
-    max-width: 800px;
-    text-align: center;
+    margin-top: 2rem;
+}
+
+.features-box h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
 }
 
 .home-nav ul {
-    display: flex;
     list-style-type: none;
     padding: 0;
-    justify-content: center;
 }
 
-.home-nav li {
-    margin: 0 10px;
+.home-nav ul li {
+    margin-bottom: 1rem;
 }
 
-.home-nav a {
-    color: black;
+.home-nav ul li a {
+    color: white;
     text-decoration: none;
-    font-size: 1.2em;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+}
+
+.home-nav ul li a:hover {
+    color: #ffd700; /* Change color on hover */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .home-container h1 {
+        font-size: 2.5rem;
+    }
+
+    .features-box {
+        padding: 1rem;
+    }
+
+    .features-box h2 {
+        font-size: 1.5rem;
+    }
+
+    .home-nav ul li a {
+        font-size: 1rem;
+    }
 }

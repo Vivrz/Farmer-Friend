@@ -27,7 +27,7 @@ function PestPrediction() {
                 <form onSubmit={handleSubmit}>
 
                     <div>
-                        <label>Crop:</label>
+                        <label>Crop Disease :</label>
                         <select
                             value={crop}
                             onChange={(e) => setCrop(e.target.value)}
