@@ -1,0 +1,88 @@
+.schemes-container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 1200px;
+    margin: 0 auto;
+    color: black;
+
+}
+
+.schemes-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: flex-start;
+
+}
+
+.scheme {
+    flex: 0 1 300px;
+
+    margin: 10px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-sizing: border-box;
+    background-color: #f9f9f9;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    color: black;
+
+}
+
+.scheme p {
+    margin: 0 0 10px 0;
+}
+
+.scheme .label {
+    font-weight: bold;
+}
+
+.scheme a {
+    color: #1a0dab;
+    text-decoration: none;
+    word-break: break-all;
+
+}
+
+.scheme a:hover {
+    text-decoration: underline;
+}
+
+.view-button {
+    background-color: green;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: auto;
+
+}
+
+.view-button:hover {
+    background-color: darkgreen;
+}
+
+/* src/components/SchemesPage.css */
+
+.add-scheme-form input[type="text"],
+.add-scheme-form input[type="url"] {
+    width: 20%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.add-scheme-form input[type="text"]:focus,
+.add-scheme-form input[type="url"]:focus {
+    border-color: #007bff;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(13, 0, 255, 0.25);
+}

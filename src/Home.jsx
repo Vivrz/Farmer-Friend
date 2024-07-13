@@ -15,7 +15,7 @@ const Home = () => {
                 <h2>Features</h2>
                 <nav className="home-nav">
                     <ul>
-                        {/* <li><Link to="/government-schemes">Government Schemes</Link></li> */}
+                        <li><Link to="/government-schemes">Government Schemes</Link></li>
                         <li><Link to="/crop-prediction">Crop Prediction</Link></li>
                         <li><Link to="/pest-prediction">Pest Prediction</Link></li>
                         <li><Link to="/weather-prediction">Weather Prediction</Link></li>
