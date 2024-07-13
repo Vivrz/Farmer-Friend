@@ -1,0 +1,53 @@
+/* Home.css */
+
+.home-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    /* Adjust as needed */
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    color: #fff;
+    /* Text color */
+}
+
+.home-container h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.features-box {
+    background: rgba(0, 0, 0, 0.5);
+    /* Semi-transparent background */
+    padding: 1.5rem;
+    border-radius: 10px;
+    margin-top: 1rem;
+}
+
+.features-box h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.home-nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.home-nav ul li {
+    margin-bottom: 0.5rem;
+}
+
+.home-nav ul li a {
+    color: #fff;
+    /* Link color */
+    text-decoration: none;
+    font-size: 1.2rem;
+}
+
+.home-nav ul li a:hover {
+    text-decoration: underline;
+}
