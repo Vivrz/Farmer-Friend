@@ -4,7 +4,9 @@
   "main": "crop.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon crop.js"
+    "start": "nodemon pest.js",
+    "start":"nodemon crop.js"
+    
   },
   "author": "",
   "license": "ISC",

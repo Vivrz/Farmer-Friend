@@ -17,7 +17,8 @@ const Home = () => {
                     <ul>
                         {/* <li><Link to="/government-schemes">Government Schemes</Link></li> */}
                         <li><Link to="/crop-prediction">Crop Prediction</Link></li>
-                        {/* <li><Link to="/weather-prediction">Weather Prediction</Link></li> */}
+                        <li><Link to="/pest-prediction">Pest Prediction</Link></li>
+                        <li><Link to="/weather-prediction">Weather Prediction</Link></li>
                         <li><a href="https://www.commodityonline.com/mandiprices" target="_blank" rel="noopener noreferrer">Market Price</a></li>
                     </ul>
                 </nav>

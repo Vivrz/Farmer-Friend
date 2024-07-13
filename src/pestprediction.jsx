@@ -1,17 +1,16 @@
 import { useState } from 'react';
 import axios from 'axios';
-import "./CropPrediction.css";
+import "./pestprediction.css";
 import img4 from "./assets/image4.jpg";
 
-function CropPrediction() {
-    const [city, setCity] = useState('');
-    const [cropType, setCropType] = useState('');
+function PestPrediction() {
+    const [crop, setCrop] = useState('');
     const [suggestions, setSuggestions] = useState('');
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post('http://localhost:5000/suggest', { city, cropType });
+            const response = await axios.post('http://localhost:3000/suggest', { crop});
             setSuggestions(response.data.text);
         } catch (error) {
             console.error("Error fetching suggestions:", error);
@@ -24,22 +23,14 @@ function CropPrediction() {
             backgroundImage: `url(${img4})`
         }}>
             <div className="Apps">
-                <h1>Crop Prediction</h1>
+                <h1>Pest Prediction</h1>
                 <form onSubmit={handleSubmit}>
+                   
                     <div>
-                        <label>City:</label>
-                        <input
-                            type="text"
-                            value={city}
-                            onChange={(e) => setCity(e.target.value)}
-                            required
-                        />
-                    </div>
-                    <div>
-                        <label>Crop Type:</label>
+                        <label>Crop:</label>
                         <select
-                            value={cropType}
-                            onChange={(e) => setCropType(e.target.value)}
+                            value={crop}
+                            onChange={(e) => setCrop(e.target.value)}
                             required
                         >
                             <option value="">Select Crop Type</option>
@@ -50,7 +41,7 @@ function CropPrediction() {
                             <option value="no-session">No Session</option>
                         </select>
                     </div>
-                    <button type="submit">Predict Crops</button>
+                    <button type="submit">Predict pest</button>
                 </form>
                 {suggestions && (
                     <div>
@@ -63,4 +54,4 @@ function CropPrediction() {
     );
 }
 
-export default CropPrediction;
+export default PestPrediction;
