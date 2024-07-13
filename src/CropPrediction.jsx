@@ -1,7 +1,9 @@
+
 import { useState } from 'react';
 import axios from 'axios';
-import "./CropPrediction.css"
-import img4 from "./assets/image4.jpg"
+import "./CropPrediction.css";
+import img4 from "./assets/image4.jpg";
+
 function CropPrediction() {
     const [city, setCity] = useState('');
     const [cropType, setCropType] = useState('');
@@ -22,8 +24,8 @@ function CropPrediction() {
         <div className="abc" style={{
             backgroundImage: `url(${img4})`
         }}>
-            <div className="Apps" >
-                <h1>Crop Prediction </h1>
+            <div className="Apps">
+                <h1>Crop Prediction</h1>
                 <form onSubmit={handleSubmit}>
                     <div>
                         <label>City:</label>
@@ -36,12 +38,18 @@ function CropPrediction() {
                     </div>
                     <div>
                         <label>Crop Type:</label>
-                        <input
-                            type="text"
+                        <select
                             value={cropType}
                             onChange={(e) => setCropType(e.target.value)}
                             required
-                        />
+                        >
+                            <option value="">Select Crop Type</option>
+                            <option value="all">All Crops</option>
+                            <option value="kharif">Kharif</option>
+                            <option value="rabi">Rabi</option>
+                            <option value="perennial">Perennial (Whole Year)</option>
+                            <option value="no-session">No Session</option>
+                        </select>
                     </div>
                     <button type="submit">Predict Crops</button>
                 </form>
