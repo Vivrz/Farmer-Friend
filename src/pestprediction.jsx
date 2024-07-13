@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import axios from 'axios';
 import "./pestprediction.css";
-import img4 from "./assets/image4.jpg";
+import img2 from "./assets/image2.jpg";
 
 function PestPrediction() {
     const [crop, setCrop] = useState('');
@@ -10,7 +10,7 @@ function PestPrediction() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post('http://localhost:3000/suggest', { crop});
+            const response = await axios.post('http://localhost:3000/suggest', { crop });
             setSuggestions(response.data.text);
         } catch (error) {
             console.error("Error fetching suggestions:", error);
@@ -20,12 +20,12 @@ function PestPrediction() {
 
     return (
         <div className="abc" style={{
-            backgroundImage: `url(${img4})`
+            backgroundImage: `url(${img2})`
         }}>
             <div className="Apps">
                 <h1>Pest Prediction</h1>
                 <form onSubmit={handleSubmit}>
-                   
+
                     <div>
                         <label>Crop:</label>
                         <select
