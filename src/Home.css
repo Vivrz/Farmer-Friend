@@ -9,23 +9,21 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding-top: 20px;
-    /* Add some padding at the top */
+    padding-top: 0px;
 }
 
 .home-container h1 {
     margin: 0;
     padding: 10px;
     background-color: rgba(0, 0, 0, 0.429);
-    /* Add a semi-transparent background for better readability */
+
     width: 100%;
     text-align: center;
 }
 
 .features-box {
     background-color: rgba(255, 255, 255, 0.8);
-    /* Add a semi-transparent white background */
-    color: black;
+    color: blue;
     border-radius: 10px;
     padding: 20px;
     margin-top: 20px;
@@ -44,15 +42,14 @@
 }
 
 .home-nav ul li a {
-    color: white;
+    color: black;
     text-decoration: none;
     font-size: 1.2rem;
     transition: all 0.3s ease;
 }
 
 .home-nav ul li a:hover {
-    color: #ffd700;
-    /* Change color on hover */
+    color: green;
 }
 
 /* Responsive adjustments */
