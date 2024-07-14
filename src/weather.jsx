@@ -5,12 +5,14 @@ const WeatherPrediction = () => {
     const [city, setCity] = useState('');
     const [weather, setWeather] = useState(null);
     const [error, setError] = useState(null);
+    const [loading, setLoading] = useState(false);
 
     const handleCityChange = (event) => {
         setCity(event.target.value);
     };
     const handleSubmit = async (event) => {
         event.preventDefault();
+        setLoading(true);
         setError(null);
 
         const url = `https://weatherapi-com.p.rapidapi.com/current.json?q=${encodeURIComponent(city)}`;
@@ -32,11 +34,13 @@ const WeatherPrediction = () => {
         } catch (error) {
             setError('Error fetching the weather data. Please try again.');
             console.error('Error fetching the weather data:', error);
+        } finally {
+            setLoading(false);
         }
     };
 
     return (
-         <div className="abc" style={{ backgroundImage: `url(${img5})` }}>
+        <div className="abc" style={{ backgroundImage: `url(${img5})` }}>
             <div className="weather-container">
                 <h1>Weather Prediction</h1>
                 <form onSubmit={handleSubmit} className="weather-form">
@@ -50,6 +54,15 @@ const WeatherPrediction = () => {
                     </label>
                     <button type="submit">Submit</button>
                 </form>
+                {loading && (
+                    <div className="loading-wave">
+                        <div className="loading-bar"></div>
+                        <div className="loading-bar"></div>
+                        <div className="loading-bar"></div>
+                        <div className="loading-bar"></div>
+                    </div>
+
+                )}
                 {error && <p className="error">{error}</p>}
                 {weather && (
                     <div className="weather-result">

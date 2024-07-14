@@ -22,7 +22,7 @@ app.post('/suggest', async (req, res) => {
 
     const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
-    const prompt = `what are the natural pesticide for the ${crop} crop`;
+    const prompt = `what are the natural pesticide for the ${crop} crop and show the result in points format and give the points in different lines `;
 
     try {
         const result = await model.generateContent(prompt);

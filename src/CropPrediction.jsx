@@ -7,15 +7,19 @@ function CropPrediction() {
     const [city, setCity] = useState('');
     const [cropType, setCropType] = useState('');
     const [suggestions, setSuggestions] = useState('');
+    const [loading, setLoading] = useState(false);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setLoading(true);
         try {
             const response = await axios.post('http://localhost:3000/Prediction', { city, cropType });
             setSuggestions(response.data.text);
         } catch (error) {
             console.error("Error fetching suggestions:", error);
             setSuggestions('Error fetching suggestions');
+        } finally {
+            setLoading(false);
         }
     };
 
@@ -52,6 +56,15 @@ function CropPrediction() {
                     </div>
                     <button type="submit">Predict Crops</button>
                 </form>
+                {loading && (
+                    <div className="loading-wave">
+                        <div className="loading-bar"></div>
+                        <div className="loading-bar"></div>
+                        <div className="loading-bar"></div>
+                        <div className="loading-bar"></div>
+                    </div>
+
+                )}
                 {suggestions && (
                     <div>
                         <h2>Suggestions</h2>

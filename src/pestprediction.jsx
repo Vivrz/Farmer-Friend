@@ -6,15 +6,19 @@ import img2 from "./assets/image2.jpg";
 function PestPrediction() {
     const [crop, setCrop] = useState('');
     const [suggestions, setSuggestions] = useState('');
+    const [loading, setLoading] = useState(false);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setLoading(true);
         try {
             const response = await axios.post('http://localhost:3000/suggest', { crop });
             setSuggestions(response.data.text);
         } catch (error) {
             console.error("Error fetching suggestions:", error);
             setSuggestions('Error fetching suggestions');
+        } finally {
+            setLoading(false);
         }
     };
 
@@ -43,6 +47,15 @@ function PestPrediction() {
                     </div>
                     <button type="submit">Predict pest</button>
                 </form>
+                {loading && (
+                    <div className="loading-wave">
+                        <div className="loading-bar"></div>
+                        <div className="loading-bar"></div>
+                        <div className="loading-bar"></div>
+                        <div className="loading-bar"></div>
+                    </div>
+
+                )}
                 {suggestions && (
                     <div>
                         <h2>Suggestions</h2>
