@@ -1,32 +1,32 @@
 .home-container {
     background-size: cover;
     background-position: center;
-    width: 150%;
+    width: 240%;
     height: 100vh;
     color: white;
     text-align: center;
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
     padding-top: 20px;
-
-    box-sizing: border-box;
+    /* Add some padding at the top */
 }
 
 .home-container h1 {
     margin: 0;
     padding: 10px;
-    background-color: rgba(243, 238, 238, 0.429);
-
-    width: 90%;
+    background-color: rgba(0, 0, 0, 0.429);
+    /* Add a semi-transparent background for better readability */
+    width: 100%;
     text-align: center;
 }
 
 .features-box {
-    background-color: rgba(251, 246, 244, 0.8);
-
+    background-color: rgba(255, 255, 255, 0.8);
+    /* Add a semi-transparent white background */
     color: black;
-    border-radius: 30px;
+    border-radius: 10px;
     padding: 20px;
     margin-top: 20px;
     width: 80%;
@@ -35,18 +35,41 @@
 }
 
 .home-nav ul {
-    display: flex;
     list-style-type: none;
     padding: 0;
-    justify-content: center;
 }
 
-.home-nav li {
-    margin: 0 10px;
+.home-nav ul li {
+    margin-bottom: 1rem;
 }
 
-.home-nav a {
-    color: black;
+.home-nav ul li a {
+    color: white;
     text-decoration: none;
-    font-size: 1.2em;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+}
+
+.home-nav ul li a:hover {
+    color: #ffd700;
+    /* Change color on hover */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .home-container h1 {
+        font-size: 2.5rem;
+    }
+
+    .features-box {
+        padding: 1rem;
+    }
+
+    .features-box h2 {
+        font-size: 1.5rem;
+    }
+
+    .home-nav ul li a {
+        font-size: 1rem;
+    }
 }
