@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import './SchemesPage.css';
-import img5 from "./assets/image5.jpg"
+import img1 from "./assets/image1.jpg"
 const initialSchemes = [
     {
         name: 'PM-KISAN Scheme',
@@ -43,7 +43,7 @@ const SchemesPage = () => {
 
     return (
         <div className='abc' style={{
-            backgroundImage: `url(${img5})`
+            backgroundImage: `url(${img1})`
         }}>
             <div className="schemes-container">
                 <h1>Government Schemes</h1>
@@ -64,7 +64,7 @@ const SchemesPage = () => {
                         onChange={handleInputChange}
                         required
                     />
-                    <button type="submit">Add Scheme</button>
+                    <button type="submit" className='add-scheme'>Add Scheme</button>
                 </form>
                 <div className="schemes-list">
                     {schemes.map((scheme, index) => (
