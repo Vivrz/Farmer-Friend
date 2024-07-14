@@ -1,6 +1,7 @@
+/* eslint-disable no-undef */
 const express = require('express');
 const app = express();
-const connectionWithDB = require("./db");
+const connectionWithDB = require("./DB.js");
 const farmer = require("./farmerschema.js");
 const retailer = require("./retailerSchema.js");
 app.use(express.json());

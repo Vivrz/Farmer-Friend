@@ -1,3 +1,5 @@
+/* eslint-disable no-undef */
+
 const mongoose = require("mongoose");
 
 const farmerschema = new mongoose.Schema({
