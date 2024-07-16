@@ -5,7 +5,7 @@ const cors = require('cors');
 const { GoogleGenerativeAI } = require('@google/generative-ai');
 
 const app = express();
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 3000;
 
 require('dotenv').config();
 const genAI = new GoogleGenerativeAI("AIzaSyDOhsdflOTrT-rFafju3_mtXCzrTIIamB0");
@@ -22,7 +22,6 @@ app.post('/suggest', async (req, res) => {
 
     const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
     const prompt = `what are the crops which i can grow in ${city} and the croptype is ${cropType}   `;
-    // const prompt = what are the natural pesticide for the wheat crop;
 
     try {
         const result = await model.generateContent(prompt);

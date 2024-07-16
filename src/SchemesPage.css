@@ -17,7 +17,7 @@
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-    background-color: blue;
+    background-color: orange;
     /* Light blue background */
 }
 
@@ -126,7 +126,7 @@ p {
 }
 
 .scheme a {
-    color: #1a0dab;
+    /* color: #1a0dab; */
     text-decoration: none;
     word-break: break-all;
 }
