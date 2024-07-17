@@ -6,8 +6,6 @@ const connectionWithDB = require("./DB.js");
 const farmer = require("./farmerschema.js");
 const retailer = require("./retailerSchema.js");
 const scheme = require("./schemeschema.js")
-const jwt = require('jsonwebtoken');
-const bcrypt = require('bcrypt');
 app.use(express.json());
 connectionWithDB();
 app.use(cors({
@@ -18,6 +16,7 @@ app.use(cors({
 app.get("/", (req, res) => {
     res.send("hello from backend");
 })
+
 app.post("/AddScheme", async (req, res) => {
 
     try {
@@ -41,69 +40,44 @@ app.get("/FetchScheme", async (req, res) => {
         res.status(500).send("Error fetching data");
     }
 });
-// app.post("/Farmer", async (req, res) => {
-//     try {
-//         const { farmername, contact, Email, password, District } = req.body;
-//         await farmer.create({
-//             name: farmername,
-//             contact: contact,
-//             Email: Email,
-//             password: password,
-//             District: District,
-//         });
-//         res.send("Farmer added successfully!");
-//     } catch (error) {
-//         console.error(error);
-//     }
-// });
-// app.get("/find_farmer", async (req, res) => {
-//     const all_farmer = await farmer.find();
-//     console.log(all_farmer);
-//     res.send("fetched the data");
-// })
-const SECRET_KEY = 123123; // Replace with your actual secret key
-
-app.post('/login', async (req, res) => {
+app.delete("/deleteScheme", async (req, res) => {
     try {
-        const { Email, password } = req.body;
-        console.log(req.body)
-        const Farmer = await farmer.findOne({ Email });
+        const { schemename } = req.body;
 
-        if (!Farmer) {
-            return res.status(401).send('Invalid credentials');
+        const result = await scheme.findOneAndDelete({ schemename });
+
+        if (result) {
+            res.send("Scheme deleted successfully!");
+        } else {
+            res.status(404).send("Scheme not found.");
         }
-
-        const isPasswordValid = await bcrypt.compare(password, farmer.password);
-        if (!isPasswordValid) {
-            return res.status(401).send('Invalid credentials');
-        }
-
-        const token = jwt.sign({ id: farmer._id }, SECRET_KEY, { expiresIn: '1h' });
-
-        res.status(200).json({ token });
     } catch (error) {
         console.error(error);
-        res.status(500).send('Internal server error');
+        res.status(500).send("An error occurred while deleting the scheme.");
     }
 });
 
-// Example registration route to hash the password
-app.post('/Farmer', async (req, res) => {
+app.post("/Farmer", async (req, res) => {
     try {
         const { farmername, contact, Email, password, District } = req.body;
-        const hashedPassword = await bcrypt.hash(password, 10);
-        await Farmer.create({
+        await farmer.create({
             name: farmername,
             contact: contact,
             Email: Email,
-            password: hashedPassword,
+            password: password,
             District: District,
         });
-        res.send('Farmer added successfully!');
+        res.send("Farmer added successfully!");
     } catch (error) {
         console.error(error);
     }
 });
+app.get("/find_farmer", async (req, res) => {
+    const all_farmer = await farmer.find();
+    console.log(all_farmer);
+    res.send("fetched the data");
+})
+
 
 app.delete("/deleteFarmer", async (req, res) => {
     try {

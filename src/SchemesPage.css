@@ -1,24 +1,10 @@
-.image-container {
-    background-size: cover;
-    background-position: center;
-    height: 140vh;
-    color: white;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-top: 40px;
-    /* Add some padding at the top */
-}
-
 .App {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-    background-color: orange;
-    /* Light blue background */
+    background-color: grey;
 }
 
 .box {
@@ -30,7 +16,7 @@
     margin-top: 2rem;
     width: 100%;
     max-width: 100px;
-    /* Adjust the max-width as needed */
+
     box-sizing: border-box;
     text-align: left;
 }
@@ -85,7 +71,6 @@ p {
     text-align: center;
 }
 
-/* Schemes CSS */
 .schemes-container {
     padding: 20px;
     border-radius: 8px;
@@ -93,7 +78,6 @@ p {
     max-width: 50%;
     margin: 20px auto;
     color: black;
-    /* Fix the color typo */
 }
 
 .schemes-list {
@@ -126,7 +110,7 @@ p {
 }
 
 .scheme a {
-    /* color: #1a0dab; */
+
     text-decoration: none;
     word-break: break-all;
 }
@@ -178,4 +162,17 @@ p {
 
 .add-scheme-form button[type="submit"]:hover {
     background-color: darkgreen;
+}
+
+.delete-button {
+    background-color: purple;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.delete-button:hover {
+    background-color: darkred;
 }

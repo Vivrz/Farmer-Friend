@@ -13,7 +13,7 @@ function CropPrediction() {
         e.preventDefault();
         setLoading(true);
         try {
-            const response = await axios.post('http://localhost:3000/Prediction', { city, cropType });
+            const response = await axios.post('http://localhost:2000/Prediction', { city, cropType });
             setSuggestions(response.data.text);
         } catch (error) {
             console.error("Error fetching suggestions:", error);

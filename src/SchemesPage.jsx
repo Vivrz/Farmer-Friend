@@ -38,13 +38,22 @@ const SchemesPage = () => {
             }
         }
     };
+    const deleteScheme = async (schemename) => {
+        try {
+            await axios.delete('http://localhost:2000/deleteScheme', { data: { schemename } });
+            setSchemes(schemes.filter(scheme => scheme.schemename !== schemename));
+        } catch (error) {
+            console.error("Error deleting scheme:", error);
+        }
+    };
+
 
     const viewScheme = (scheme) => {
         window.open(scheme.link, '_blank');
     };
 
-    return (
 
+    return (
         <div className="schemes-container">
             <h1>Government Schemes</h1>
             <form className="add-scheme-form" onSubmit={addScheme}>
@@ -64,26 +73,25 @@ const SchemesPage = () => {
                     onChange={handleInputChange}
                     required
                 />
-                <button type="submit" className='add-scheme'>Add Scheme</button>
+                <button type="submit" className="add-scheme">Add Scheme</button>
             </form>
             <div className="schemes-list">
-
-                {schemes && schemes.map((scheme, index) => {
-                    console.log(scheme)
-                    return (< div key={index} className="scheme" >
+                {schemes && schemes.map((scheme, index) => (
+                    <div key={index} className="scheme">
                         <p><span className="label">Name of Scheme:</span> {scheme.schemename}</p>
                         <p><span className="label">Scheme Link:</span> <a href={scheme.schemeLink} target="_blank" rel="noopener noreferrer">{scheme.schemeLink}</a></p>
-
-                        <a href={scheme.schemeLink} className="view-button" >
+                        <a href={scheme.schemeLink} className="view-button">
                             View Scheme
                         </a>
-
-                    </div>)
-                })}
+                        <button onClick={() => deleteScheme(scheme.schemename)} className="delete-button">
+                            Delete Scheme
+                        </button>
+                    </div>
+                ))}
             </div>
         </div>
-
     );
+
 };
 
 export default SchemesPage;
