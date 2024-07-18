@@ -21,7 +21,7 @@ app.post('/suggest', async (req, res) => {
     }
 
     const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
-    const prompt = `what are the crops which i can grow in ${city} and the croptype is ${cropType}   `;
+    const prompt = `what are the crops which i can grow in ${city} and the croptype is ${cropType} , give response in format of a json example : {"points":["point1 data" , "point2 data" , "etc"]} do not include any backticks in the starting and the ending of the response   `;
 
     try {
         const result = await model.generateContent(prompt);
