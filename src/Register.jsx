@@ -1,6 +1,9 @@
+/* eslint-disable no-unused-vars */
 import { useState } from 'react';
 import axios from 'axios';
 import './Register.css';
+import { useNavigate } from 'react-router-dom';
+import Home from './Home.jsx'
 
 const Register = () => {
     const [formData, setFormData] = useState({
@@ -10,6 +13,7 @@ const Register = () => {
         password: '',
         District: ''
     });
+    const navigate = useNavigate();
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
@@ -21,6 +25,7 @@ const Register = () => {
         try {
             const response = await axios.post('http://localhost:2000/Farmer', formData);
             console.log(response.data);
+            navigate('/Home');
         } catch (error) {
             console.error('Error registering farmer:', error);
         }
