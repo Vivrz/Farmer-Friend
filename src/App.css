@@ -1,10 +1,12 @@
-#root {
+/* #root {
   max-width: 1500px;
   margin: 0 auto;
   padding: -3vh;
   text-align: center;
 }
-
+body{
+  margin: 0;
+}
 .logo {
   height: 6em;
   padding: 1.5em;
@@ -82,4 +84,4 @@
   to {
     transform: rotate(360deg);
   }
-}
+} */

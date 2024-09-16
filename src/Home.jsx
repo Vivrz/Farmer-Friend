@@ -7,9 +7,7 @@ import './Home.css';
 
 const Home = () => {
     return (
-        <div className="home-container" style={{
-            backgroundImage: `url(${img})`
-        }}>
+        <div className="home-container">
             <h1>Welcome to Farmer Friend</h1>
             <div className="features-box">
                 <h2>Features</h2>

@@ -54,6 +54,7 @@ const SchemesPage = () => {
 
 
     return (
+        <div className="Hello">
         <div className="schemes-container">
             <h1>Government Schemes</h1>
             <form className="add-scheme-form" onSubmit={addScheme}>
@@ -89,6 +90,7 @@ const SchemesPage = () => {
                     </div>
                 ))}
             </div>
+        </div>
         </div>
     );
 

@@ -1,7 +1,4 @@
-/* eslint-disable no-undef */
-//connecting our database with the backend :- 
-const mongoose = require("mongoose");
-
+const mongoose = require('mongoose');
 
 function connectionWithDB() {
     mongoose.connect("mongodb://localhost:27017/Farmerfriend").then(() => {

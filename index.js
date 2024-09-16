@@ -1,11 +1,20 @@
 /* eslint-disable no-undef */
+const bcrypt = require('bcrypt');
 const express = require('express');
 const cors = require('cors');
 const app = express();
-const connectionWithDB = require("./DB.js");
-const farmer = require("./farmerschema.js");
-const retailer = require("./retailerSchema.js");
-const scheme = require("./schemeschema.js")
+
+require('dotenv').config();
+
+
+const jwt = require('jsonwebtoken');
+
+const {signupValidation , LoginValidation} = require('./Middleware/AuthValidation.js');
+const connectionWithDB = require("./Models/DB.js");
+const farmer = require("./Models/farmerschema.js");
+const retailer = require("./Models/retailerSchema.js");
+const scheme = require("./Models/schemeschema.js");
+
 app.use(express.json());
 connectionWithDB();
 app.use(cors({
@@ -13,11 +22,65 @@ app.use(cors({
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization']
 }));
-app.get("/", (req, res) => {
+app.get("/", (req, res) => { 
     res.send("hello from backend");
 })
+app.post("/Signup" ,signupValidation, async(req , res) => {
+    try{
+        const {name ,   password , email    } = req.body;
+        const user = await farmer.findOne({email});
+        if(user){
+            return res.status(409)
+            .json({message : "User is already exist , you can login" , success : false})
+        } 
+        const hashedPassword = await bcrypt.hash(password, 10);
+const userModel = new farmer({ name, email, password: hashedPassword });
+await userModel.save();
+        res.status(201).
+        json({message : "Signup successfully", success : true})
+    }
+    catch(error){
+        console.log(error);
+        res.status(500).
+        json({message : "Internal server error " ,  success : false })
+    }
+})
 
-app.post("/AddScheme", async (req, res) => {
+
+app.post("/Login" ,LoginValidation, async(req , res) => {
+    try{
+        const { password , email  } = req.body;
+        const user = await farmer.findOne({email});
+        const errormsg  = "Auth failed or password is wrong !";
+        if(!user){
+            return res.status(403)
+            .json({message : errormsg , success : false})
+        }
+        const ispassword = await bcrypt.compare(password , user.password);
+        if(!ispassword){
+            return res.status(403)
+            .json({message : errormsg , success : false})
+        }
+
+       
+        const jwtoken = jwt.sign(
+            {email : user.email  , _id : user._id},
+            process.env.JWT_SECRET,
+            { expiresIn : '24h'}
+        )
+        
+         res.status(200).
+        json({message : "Login successfully", success : true , jwtoken  , email , name : user.name})
+    }
+    catch(error){
+        console.log(error);
+        res.status(500).
+        json({message : "Internal server error " ,  success : false})
+    }
+})
+
+
+app.post("/AddScheme", async (req, res) => {x
 
     try {
         console.log(req.body);
@@ -66,17 +129,12 @@ app.post("/Farmer", async (req, res) => {
             Email: Email,
             password: password,
             District: District,
-        });
+        })
         res.send("Farmer added successfully!");
     } catch (error) {
         console.error(error);
     }
 });
-app.get("/find_farmer", async (req, res) => {
-    const all_farmer = await farmer.find();
-    console.log(all_farmer);
-    res.send("fetched the data");
-})
 
 
 app.delete("/deleteFarmer", async (req, res) => {
@@ -95,43 +153,43 @@ app.delete("/deleteFarmer", async (req, res) => {
         res.status(500).send("An error occurred while deleting the farmer.");
     }
 });
-app.post("/Retailer", async (req, res) => {
-    try {
-        const { retailername, contact, Email, password, District } = req.body;
-        await retailer.create({
-            name: retailername,
-            contact: contact,
-            Email: Email,
-            password: password,
-            District: District,
-        });
-        res.send("retailer added successfully!");
-    } catch (error) {
-        console.error(error);
-    }
-});
-app.get("/find_retailer", async (req, res) => {
+// app.post("/Retailer", async (req, res) => {
+//     try {
+//         const { retailername, contact, Email, password, District } = req.body;
+//         await retailer.create({
+//             name: retailername,
+//             contact: contact,
+//             Email: Email,
+//             password: password,
+//             District: District,
+//         });
+//         res.send("retailer added successfully!");
+//     } catch (error) {
+//         console.error(error);
+//     }
+// });
+// app.get("/find_retailer", async (req, res) => {
 
-    const retailer_find = await retailer.findOne({ "name": "vivek singh" });
-    console.log(retailer_find);
-    res.send("fetched the data");
-})
-app.post("/deleteRetailer", async (req, res) => {
-    try {
-        const { name } = req.body;
+//     const retailer_find = await retailer.findOne({ "name": "vivek singh" });
+//     console.log(retailer_find);
+//     res.send("fetched the data");
+// })
+// app.post("/deleteRetailer", async (req, res) => {
+//     try {
+//         const { name } = req.body;
 
-        const result = await retailer.findOneAndDelete({ name });
+//         const result = await retailer.findOneAndDelete({ name });
 
-        if (result) {
-            res.send("Retailer deleted successfully!");
-        } else {
-            res.status(404).send("Retailer not found.");
-        }
-    } catch (error) {
-        console.error(error);
-        res.status(500).send("An error occurred while deleting the retailer.");
-    }
-});
+//         if (result) {
+//             res.send("Retailer deleted successfully!");
+//         } else {
+//             res.status(404).send("Retailer not found.");
+//         }
+//     } catch (error) {
+//         console.error(error);
+//         res.status(500).send("An error occurred while deleting the retailer.");
+//     }
+// });
 app.listen(2000, () => {
     console.log("app is listening on port number 2000");
 })

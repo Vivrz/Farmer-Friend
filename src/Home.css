@@ -1,7 +1,10 @@
 .home-container {
+    background-image: url(./assets/image.jpg);
     background-size: cover;
+    background-attachment: fixed;
     background-position: center;
-    width: 240%;
+    margin-right: 0%;
+    width: 110%;
     height: 100vh;
     color: white;
     text-align: center;
@@ -13,12 +16,13 @@
 }
 
 .home-container h1 {
-    margin: 0;
+    margin-right: 0;
     padding: 10px;
     background-color: rgba(0, 0, 0, 0.429);
-
-    width: 100%;
+    position: fixed;
+    width: 98.5%;
     text-align: center;
+    margin-bottom: 400px;
 }
 
 .features-box {
@@ -30,6 +34,7 @@
     width: 80%;
     max-width: 800px;
     text-align: center;
+    position: fixed;
 }
 
 .home-nav ul {
