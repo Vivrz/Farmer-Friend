@@ -15,7 +15,36 @@
     padding-top: 0px;
 }
 
-.home-container h1 {
+.vivek{
+    margin-top: -495px;
+    margin-right: -1400px;
+    border-radius: 20px;
+    font-size: 25px;
+    background-color: blueviolet;
+    position: fixed;
+}
+.vivek:hover {
+    background-color: darkviolet; 
+    transform: scale(1.05); 
+}
+.G{
+    margin-top: -465px;
+    margin-right: -1075px;
+    color: aqua;
+    border : 2px solid green;
+    background-color: green;
+    border-radius: 20px;
+    width : 200px;
+    position: fixed;
+    font-size: 25px;
+    padding-right: -10px;
+    padding-left: 0px;
+}
+.G:hover{
+    background-color: red;
+    transform: scale(1.05);
+}
+.J {
     margin-right: 0;
     padding: 10px;
     background-color: rgba(0, 0, 0, 0.429);

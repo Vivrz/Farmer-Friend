@@ -73,7 +73,7 @@ function Signup() {
                         className="signup-input"
                         autoFocus
                         placeholder="Enter your email"
-                        value={signupInfo.Email}
+                        value={signupInfo.email}
                     />
                 </div>
 
