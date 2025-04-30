@@ -81,7 +81,7 @@ function Login() {
 
                 <button className="signup-btn" type = "submit">Login</button>
                 <div className="signup-link">
-                    Doesnot  have an account? <a href="/SignUp">Signup</a>
+                    Doesnot  have an account? <a href="/Signup">Signup</a>
                 </div>
             </form>
             <ToastContainer/>
