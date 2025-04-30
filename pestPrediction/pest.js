@@ -21,11 +21,11 @@ app.use(cors({
 }));
 
 // MongoDB Models & Validators
-const connectionWithDB = require("../Models/DB.js");
-const farmer = require("../Models/farmerschema.js");
-const retailer = require("../Models/retailerSchema.js");
-const scheme = require("../Models/schemeschema.js");
-const { signupValidation, LoginValidation } = require('../Middleware/AuthValidation.js');
+const connectionWithDB = require("./Models/DB.js");
+const farmer = require("./Models/farmerschema.js");
+const retailer = require("./Models/retailerSchema.js");
+const scheme = require("./Models/schemeschema.js");
+const { signupValidation, LoginValidation } = require('./Middleware/AuthValidation.js');
 
 // Connect DB
 connectionWithDB();
