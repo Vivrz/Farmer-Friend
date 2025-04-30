@@ -24,7 +24,7 @@ function Login() {
             return handlerror('name , email ,password are required ! ');
         }
         try{
-            const url = "http://localhost:5000/Login";
+            const url =`${import.meta.env.VITE_API_URL}/Login`;
             const response = await fetch(url , {
                 method : "POST",
                 headers : {

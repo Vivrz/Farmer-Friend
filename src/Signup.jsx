@@ -25,7 +25,7 @@ function Signup() {
             return handlerror('name , email ,password are required ! ');
         }
         try{
-            const url = "http://localhost:5000/Signup";
+            const url = `${import.meta.env.VITE_API_URL}/Signup`;
             const response = await fetch(url , {
                 method : "POST",
                 headers : {
