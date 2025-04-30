@@ -1,10 +1,12 @@
 /* eslint-disable no-undef */
+const dotenv = require('dotenv');
+dotenv.config({ path: './.env' });
 const express = require('express');
 const cors = require('cors');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const { GoogleGenerativeAI } = require('@google/generative-ai');
-require('dotenv').config();
+
 
 const app = express();
 const port = process.env.PORT || 3000;
