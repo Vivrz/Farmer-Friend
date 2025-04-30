@@ -11,7 +11,7 @@ const SchemesPage = () => {
     useEffect(() => {
         const fetchSchemes = async () => {
             try {
-                const response = await axios.get('http://localhost:2000/FetchScheme');
+                const response = await axios.get('http://localhost:5000/FetchScheme');
                 setSchemes(response.data);
             } catch (error) {
                 console.error("Error fetching schemes:", error);
@@ -30,7 +30,7 @@ const SchemesPage = () => {
         console.log(newScheme);
         if (newScheme) {
             try {
-                const response = await axios.post('http://localhost:2000/AddScheme', newScheme);
+                const response = await axios.post('http://localhost:5000/AddScheme', newScheme);
                 setSchemes([...schemes, response.data]);
                 setNewScheme({ name: '', link: '' });
             } catch (error) {
@@ -40,7 +40,7 @@ const SchemesPage = () => {
     };
     const deleteScheme = async (schemename) => {
         try {
-            await axios.delete('http://localhost:2000/deleteScheme', { data: { schemename } });
+            await axios.delete('http://localhost:5000/deleteScheme', { data: { schemename } });
             setSchemes(schemes.filter(scheme => scheme.schemename !== schemename));
         } catch (error) {
             console.error("Error deleting scheme:", error);
