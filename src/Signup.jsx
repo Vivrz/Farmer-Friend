@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import './signup.css';
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 import { handlerror, handleSuccess } from './util';
 import {  useNavigate } from 'react-router';
 function Signup() {
@@ -25,8 +25,8 @@ function Signup() {
             return handlerror('name , email ,password are required ! ');
         }
         try{
-            const url = `${import.meta.env.VITE_API_URL}/Signup`;
-            const response = await fetch(url , {
+            const url =`${import.meta.env.VITE_API_URL}/Signup`;
+            const response = await fetch(url, {
                 method : "POST",
                 headers : {
                     'Content-Type' : 'application/json'

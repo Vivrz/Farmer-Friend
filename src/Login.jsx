@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import './signup.css';
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 import { handlerror, handleSuccess } from './util';
 import {  useNavigate } from 'react-router';
 function Login() {
@@ -25,7 +25,7 @@ function Login() {
         }
         try{
             const url =`${import.meta.env.VITE_API_URL}/Login`;
-            const response = await fetch(url , {
+            const response = await fetch(url, {
                 method : "POST",
                 headers : {
                     'Content-Type' : 'application/json'

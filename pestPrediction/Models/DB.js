@@ -1,11 +1,13 @@
+/* eslint-disable no-undef */
+const dotenv = require('dotenv');
+dotenv.config();
 const mongoose = require('mongoose');
-require('dotenv').config();
 function connectionWithDB() {
     mongoose.connect(process.env.Mongo_URI).then(() => {
-        console.log("connect to db");
+        console.log("Connected to DB");
     }).catch((err) => {
-        console.log(err);
-    })
+        console.error("Error connecting to DB:", err);
+    });
 }
 module.exports = connectionWithDB;
 
