@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
-
+require('dotenv').config();
 function connectionWithDB() {
-    mongoose.connect("mongodb://localhost:27017/Farmerfriend").then(() => {
+    mongoose.connect(process.env.Mongo_URI).then(() => {
         console.log("connect to db");
     }).catch((err) => {
         console.log(err);
