@@ -2,7 +2,8 @@ import { useState } from 'react';
 import './signup.css';
 import { ToastContainer } from 'react-toastify';
 import { handlerror, handleSuccess } from './util';
-import {  useNavigate } from 'react-router';
+import { useNavigate } from 'react-router';
+import { Link } from "react-router-dom";
 function Login() {
 
     const [LoginInfo , setLoginInfo] = useState({
@@ -81,7 +82,7 @@ function Login() {
 
                 <button className="signup-btn" type = "submit">Login</button>
                 <div className="signup-link">
-                    Doesnot  have an account? <a href="/Signup">Signup</a>
+                    Doesnot  have an account? <Link to="/Signup">Signup</Link>
                 </div>
             </form>
             <ToastContainer/>

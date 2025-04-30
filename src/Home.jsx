@@ -1,7 +1,7 @@
 // // // /* eslint-disable no-unused-vars */
 // // // // /* eslint-disable no-unused-vars */
 
-import { Link, Navigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import img from "./assets/image.jpg";
 import './Home.css';
 import { useEffect, useState } from 'react';
