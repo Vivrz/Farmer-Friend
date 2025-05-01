@@ -2,7 +2,8 @@ import { useState } from 'react';
 import './signup.css';
 import { ToastContainer } from 'react-toastify';
 import { handlerror, handleSuccess } from './util';
-import { Link,  useNavigate } from 'react-router';
+import { useNavigate } from 'react-router';
+import {Link} from 'react-router-dom'
 function Signup() {
 
     const [signupInfo , setsignupInfo] = useState({
