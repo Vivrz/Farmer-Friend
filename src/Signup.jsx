@@ -1,8 +1,9 @@
 import { useState } from 'react';
 import './signup.css';
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 import { handlerror, handleSuccess } from './util';
-import {  useNavigate } from 'react-router';
+import { useNavigate } from 'react-router';
+import {Link} from 'react-router-dom'
 function Signup() {
 
     const [signupInfo , setsignupInfo] = useState({
@@ -25,8 +26,8 @@ function Signup() {
             return handlerror('name , email ,password are required ! ');
         }
         try{
-            const url = "http://localhost:2000/Signup";
-            const response = await fetch(url , {
+            const url =`${import.meta.env.VITE_API_URL}/Signup`;
+            const response = await fetch(url, {
                 method : "POST",
                 headers : {
                     'Content-Type' : 'application/json'
@@ -92,7 +93,7 @@ function Signup() {
 
                 <button className="signup-btn" type = "submit">Signup</button>
                 <div className="signup-link">
-                    Already have an account? <a href="/Login">Login</a>
+                    Already have an account? <Link to="/Login">Login</Link>
                 </div>
             </form>
             <ToastContainer/>
