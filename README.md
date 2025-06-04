@@ -6,7 +6,7 @@ This template provides a minimal setup to get React working in Vite with HMR and
 - [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/).
 
 ---
-
+Deplyoment Link : https://farmer-friend-gfcq.vercel.app/
 # Farmer-Friend
 
 Farmer-Friend is an innovative project designed to empower farmers by providing them with the tools and information they need to enhance their agricultural practices. This repository contains a collection of resources, scripts, and applications aimed at improving crop yield, managing farm operations, and promoting sustainable farming techniques.
