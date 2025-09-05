@@ -47,7 +47,7 @@ const WeatherPrediction = () => {
             className="min-h-screen bg-cover bg-center bg-fixed flex items-center justify-center p-4"
             style={{ backgroundImage: `url(${img5})` }}
         >
-            <div className="backdrop-blur-sm bg-blue-900/80 w-full max-w-2xl rounded-2xl shadow-2xl overflow-hidden border border-white/20">
+            <div className="backdrop-blur-sm bg-black/30 w-full max-w-2xl rounded-2xl shadow-2xl overflow-hidden border border-white/20">
                 <div className="p-8">
                     <div className="text-center mb-8">
                         <h1 className="text-4xl font-bold text-white mb-2">Weather Prediction</h1>
@@ -56,7 +56,7 @@ const WeatherPrediction = () => {
                     
                     <form onSubmit={handleSubmit} className="space-y-4 mb-8">
                         <div>
-                            <label className="block text-white text-sm font-medium mb-2">Search by country name</label>
+                            <label className="block text-white text-sm font-medium mb-2">Search by City name</label>
                             <input 
                                 type="text" 
                                 value={city} 
